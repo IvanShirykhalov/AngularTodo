@@ -28,4 +28,8 @@ export class TodolistsComponent implements OnInit {
   deleteTodolist(id: string) {
     this.todolistsService.deleteTodolist(id)
   }
+
+  updateTodolist(data: { title: string; id: string }) {
+    this.todolistsService.updateTodolist({ title: data.title, id: data.id })
+  }
 }

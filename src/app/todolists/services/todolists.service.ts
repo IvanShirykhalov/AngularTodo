@@ -44,4 +44,21 @@ export class TodolistsService {
         this.todos$.next(todos)
       })
   }
+
+  updateTodolist(data: { title: string; id: string }) {
+    this.http
+      .put<CommonResponseType>(`${environment.baseUrl}/todo-lists/${data.id}`, {
+        title: data.title,
+      })
+      .pipe(
+        map(() => {
+          return this.todos$
+            .getValue()
+            .map(tl => (tl.id === data.id ? { ...tl, title: data.title } : tl))
+        })
+      )
+      .subscribe(todos => {
+        this.todos$.next(todos)
+      })
+  }
 }

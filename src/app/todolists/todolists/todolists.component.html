@@ -6,4 +6,5 @@
 <tl-todolist
   *ngFor="let todo of todos$ | async"
   [todo]="todo"
-  (deleteTodolistEvent)="deleteTodolist($event)"></tl-todolist>
+  (deleteTodolistEvent)="deleteTodolist($event)"
+  (editTodolistEvent)="updateTodolist($event)"></tl-todolist>
