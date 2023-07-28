@@ -2,8 +2,9 @@
   <div class="todo-header">
     <input *ngIf="editMode; else content" [(ngModel)]="newTitle" (blur)="editTitleHandler()" />
     <ng-template #content>
-      <p (dblclick)="activateEditModeHandler()">{{ todo.title }}</p>
+      <b (dblclick)="activateEditModeHandler()">{{ todo.title }}</b>
     </ng-template>
     <button (click)="deleteTodolist()">Delete</button>
   </div>
+  <tl-tasks [todoId]="todo.id"></tl-tasks>
 </div>
