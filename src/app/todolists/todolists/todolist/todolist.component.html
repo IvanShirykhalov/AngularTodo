@@ -1,6 +1,10 @@
 <div class="box">
   <div class="todo-header">
-    <input *ngIf="editMode; else content" [(ngModel)]="newTitle" (blur)="editTitleHandler()" />
+    <input
+      *ngIf="editMode; else content"
+      [(ngModel)]="newTitle"
+      (blur)="editTitleHandler()"
+      (keydown.enter)="editTitleHandler()" />
     <ng-template #content>
       <b (dblclick)="activateEditModeHandler()">{{ todo.title }}</b>
     </ng-template>

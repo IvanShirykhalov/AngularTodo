@@ -6,4 +6,8 @@
     (keyup.enter)="addTaskHandler()" />
   <button (click)="addTaskHandler()">+</button>
 </div>
-<tl-task *ngFor="let task of tasks$ | async" [task]="task"></tl-task>
+<tl-task
+  *ngFor="let task of tasks$ | async"
+  [task]="task"
+  (changeTaskEvent)="changeTask($event)"
+  (removeTasksEvent)="removeTask($event)"></tl-task>

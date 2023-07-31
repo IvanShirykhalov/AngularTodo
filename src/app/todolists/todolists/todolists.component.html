@@ -1,6 +1,11 @@
 <div class="todos-header">Angular ToDo</div>
 <div class="todo-input">
-  <input class="input" type="text" placeholder="Add new todolist..." [(ngModel)]="todoTitle" />
+  <input
+    class="input"
+    type="text"
+    placeholder="Add new todolist..."
+    [(ngModel)]="todoTitle"
+    (keydown.enter)="createTodolist()" />
   <button (click)="createTodolist()">+</button>
 </div>
 <tl-todolist
