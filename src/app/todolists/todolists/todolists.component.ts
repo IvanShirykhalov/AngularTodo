@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { TodolistsService } from 'src/app/todolists/services/todolists.service'
 import { Observable } from 'rxjs'
-import { Todo } from 'src/app/todolists/models/todolists.model'
+import { DomainTodo } from 'src/app/todolists/models/todolists.model'
 
 @Component({
   selector: 'tl-todolists',
@@ -9,7 +9,7 @@ import { Todo } from 'src/app/todolists/models/todolists.model'
   styleUrls: ['./todolists.component.scss'],
 })
 export class TodolistsComponent implements OnInit {
-  todos$!: Observable<Todo[]>
+  todos$!: Observable<DomainTodo[]>
   todoTitle = ''
 
   constructor(private todolistsService: TodolistsService) {}

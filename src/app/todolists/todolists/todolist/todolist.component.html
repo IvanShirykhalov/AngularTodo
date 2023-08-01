@@ -11,4 +11,8 @@
     <button (click)="deleteTodolist()">Delete</button>
   </div>
   <tl-tasks [todoId]="todo.id"></tl-tasks>
+  <tl-filtering-btn
+    (changeFilterEvent)="changeFilter($event)"
+    [filter]="todo.filter"></tl-filtering-btn>
+  <tl-todo-footer [addDate]="todo.addedDate"></tl-todo-footer>
 </div>

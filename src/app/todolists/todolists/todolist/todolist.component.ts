@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
-import { Todo } from 'src/app/todolists/models/todolists.model'
+import { DomainTodo, FilterType } from 'src/app/todolists/models/todolists.model'
+import { TodolistsService } from 'src/app/todolists/services/todolists.service'
 
 @Component({
   selector: 'tl-todolist',
@@ -7,11 +8,13 @@ import { Todo } from 'src/app/todolists/models/todolists.model'
   styleUrls: ['./todolist.component.scss'],
 })
 export class TodolistComponent {
-  @Input() todo!: Todo
+  @Input() todo!: DomainTodo
   @Output() deleteTodolistEvent = new EventEmitter<string>()
   @Output() editTodolistEvent = new EventEmitter<{ id: string; title: string }>()
   editMode = false
   newTitle = ''
+
+  constructor(private todolistsService: TodolistsService) {}
 
   deleteTodolist() {
     this.deleteTodolistEvent.emit(this.todo.id)
@@ -25,5 +28,9 @@ export class TodolistComponent {
   editTitleHandler() {
     this.editMode = false
     this.editTodolistEvent.emit({ id: this.todo.id, title: this.newTitle })
+  }
+
+  changeFilter(filter: FilterType) {
+    this.todolistsService.changeFilter({ filter, todoId: this.todo.id })
   }
 }

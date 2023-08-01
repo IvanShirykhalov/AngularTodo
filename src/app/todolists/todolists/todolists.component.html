@@ -8,8 +8,11 @@
     (keydown.enter)="createTodolist()" />
   <button (click)="createTodolist()">+</button>
 </div>
-<tl-todolist
-  *ngFor="let todo of todos$ | async"
-  [todo]="todo"
-  (deleteTodolistEvent)="deleteTodolist($event)"
-  (editTodolistEvent)="updateTodolist($event)"></tl-todolist>
+<div class="todos-box">
+  <tl-todolist
+    *ngFor="let todo of todos$ | async"
+    [todo]="todo"
+    (deleteTodolistEvent)="deleteTodolist($event)"
+    (editTodolistEvent)="updateTodolist($event)">
+  </tl-todolist>
+</div>
