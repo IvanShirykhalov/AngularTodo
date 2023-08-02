@@ -1,0 +1,22 @@
+.box {
+  width: 300px;
+  margin: 0 auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.error {
+  color: red;
+}
+
+.inputError {
+  background-color: #ff5757;
+}
+
+.inputSuccess {
+  background-color: #6dff6d;
+}

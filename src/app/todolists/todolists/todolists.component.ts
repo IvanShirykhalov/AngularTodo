@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { TodolistsService } from 'src/app/todolists/services/todolists.service'
 import { Observable } from 'rxjs'
 import { DomainTodo } from 'src/app/todolists/models/todolists.model'
+import { AuthService } from 'src/app/core/services/auth.service'
 
 @Component({
   selector: 'tl-todolists',
@@ -12,7 +13,10 @@ export class TodolistsComponent implements OnInit {
   todos$!: Observable<DomainTodo[]>
   todoTitle = ''
 
-  constructor(private todolistsService: TodolistsService) {}
+  constructor(
+    private todolistsService: TodolistsService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.todos$ = this.todolistsService.todos$
@@ -31,5 +35,9 @@ export class TodolistsComponent implements OnInit {
 
   updateTodolist(data: { title: string; id: string }) {
     this.todolistsService.updateTodolist({ title: data.title, id: data.id })
+  }
+
+  logoutHandler() {
+    this.authService.logout()
   }
 }

@@ -23,19 +23,21 @@ export class TasksComponent implements OnInit {
   ngOnInit(): void {
     this.tasks$ = combineLatest([this.taskService.tasks$, this.todolistsService.todos$]).pipe(
       map(res => {
-        let tasks = res[0][this.todoId]
+        const tasks = res[0]
         const todos = res[1]
+
+        let taskForTodo = tasks[this.todoId]
         const activeTodo = todos.find(tl => tl.id === this.todoId)
 
         if (activeTodo?.filter === 'active') {
-          tasks = tasks.filter(t => t.status === TasksStatusEnum.active)
+          taskForTodo = taskForTodo.filter(t => t.status === TasksStatusEnum.active)
         }
 
         if (activeTodo?.filter === 'completed') {
-          tasks = tasks.filter(t => t.status === TasksStatusEnum.completed)
+          taskForTodo = taskForTodo.filter(t => t.status === TasksStatusEnum.completed)
         }
 
-        return tasks
+        return taskForTodo
       })
     )
 
