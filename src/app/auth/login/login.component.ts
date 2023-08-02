@@ -9,16 +9,22 @@ import { AuthService } from 'src/app/core/services/auth.service'
 })
 export class LoginComponent {
   loginForm = new FormGroup({
-    email: new FormControl('', [
-      Validators.required,
-      Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'),
-    ]),
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(5),
-      Validators.pattern('^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$'),
-    ]),
-    rememberMe: new FormControl(false),
+    email: new FormControl<string>('', {
+      nonNullable: true,
+      validators: [
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'),
+      ],
+    }),
+    password: new FormControl<string>('', {
+      nonNullable: true,
+      validators: [
+        Validators.required,
+        Validators.minLength(5),
+        Validators.pattern('^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$'),
+      ],
+    }),
+    rememberMe: new FormControl<boolean>(false, { nonNullable: true }),
   })
 
   constructor(private authService: AuthService) {}
