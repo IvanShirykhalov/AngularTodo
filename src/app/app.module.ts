@@ -3,22 +3,24 @@ import { BrowserModule } from '@angular/platform-browser'
 
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
-import { AuthModule } from 'src/app/auth/auth.module'
-import { TodolistsModule } from 'src/app/todolists/todolists.module'
 import { CoreModule } from 'src/app/core/core.module'
 import { HttpClientModule } from '@angular/common/http'
 import { SharedModule } from 'src/app/shared/shared.module'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { MatSlideToggleModule } from '@angular/material/slide-toggle'
+import { MatToolbarModule } from '@angular/material/toolbar'
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuthModule,
-    TodolistsModule,
     CoreModule,
     HttpClientModule,
     SharedModule,
+    BrowserAnimationsModule,
+    MatSlideToggleModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

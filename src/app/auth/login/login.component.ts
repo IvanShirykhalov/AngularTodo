@@ -15,6 +15,7 @@ export class LoginComponent {
         Validators.required,
         Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$'),
       ],
+      updateOn: 'blur',
     }),
     password: new FormControl<string>('', {
       nonNullable: true,

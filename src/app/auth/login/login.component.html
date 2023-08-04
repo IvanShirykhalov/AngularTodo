@@ -31,13 +31,17 @@
           inputError: password!.invalid && (password!.dirty || password!.touched),
           inputSuccess: password!.valid
         }" />
-
-      <div *ngIf="password!.invalid && (password!.dirty || password!.touched)" class="error">
-        <div *ngIf="password!.errors?.['minlength']">
-          Password must be at least 5 characters long.
-        </div>
-      </div>
     </label>
+
+    <div *ngIf="password!.invalid && (password!.dirty || password!.touched)" class="error">
+      <div *ngIf="password!.errors?.['required']">Password is required.</div>
+      <div *ngIf="password!.errors?.['minlength']; else notCorrect">
+        Password must be at least 5 characters long.
+      </div>
+      <ng-template #notCorrect>
+        <div *ngIf="password!.errors?.['pattern']">Password is not correct</div>
+      </ng-template>
+    </div>
 
     <label> <input type="checkbox" formArrayName="rememberMe" /> Remember me</label>
 
