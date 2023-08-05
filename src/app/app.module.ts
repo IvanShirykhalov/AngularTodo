@@ -7,8 +7,6 @@ import { CoreModule } from 'src/app/core/core.module'
 import { HttpClientModule } from '@angular/common/http'
 import { SharedModule } from 'src/app/shared/shared.module'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { MatSlideToggleModule } from '@angular/material/slide-toggle'
-import { MatToolbarModule } from '@angular/material/toolbar'
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,8 +17,6 @@ import { MatToolbarModule } from '@angular/material/toolbar'
     HttpClientModule,
     SharedModule,
     BrowserAnimationsModule,
-    MatSlideToggleModule,
-    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -4,6 +4,7 @@ import { CredentialsInterceptor } from 'src/app/core/interceptors/credentials.in
 import { HTTP_INTERCEPTORS } from '@angular/common/http'
 import { AuthService } from 'src/app/core/services/auth.service'
 import { NotificationService } from 'src/app/core/services/notification.service'
+import { AuthGuard } from 'src/app/core/guards/auth.guard'
 
 @NgModule({
   declarations: [],
@@ -12,6 +13,7 @@ import { NotificationService } from 'src/app/core/services/notification.service'
     { provide: HTTP_INTERCEPTORS, useClass: CredentialsInterceptor, multi: true },
     AuthService,
     NotificationService,
+    AuthGuard,
   ],
 })
 export class CoreModule {}

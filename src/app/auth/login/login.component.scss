@@ -1,16 +1,28 @@
 .box {
   width: 300px;
-  margin: 0 auto;
+  height: auto;
+  position: fixed;
+  top: 40%;
+  right: 50%;
+  margin: -125px  -125px;
+  padding: 10px;
+  border: 2px solid black;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .form {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 10px;
 }
 
 .error {
-  color: red;
+  color: #ff5757;
 }
 
 .inputError {
