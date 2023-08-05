@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component'
 import { ReactiveFormsModule } from '@angular/forms'
 import { MatInputModule } from '@angular/material/input'
 import { MatCheckboxModule } from '@angular/material/checkbox'
+import { MatGridListModule } from '@angular/material/grid-list'
 
 @NgModule({
   declarations: [LoginComponent],
@@ -15,6 +16,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox'
     ReactiveFormsModule,
     MatInputModule,
     MatCheckboxModule,
+    MatGridListModule,
   ],
 })
 export class AuthModule {}

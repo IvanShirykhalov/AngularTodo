@@ -13,7 +13,7 @@ export class AuthService {
   isAuth = false
 
   resolveAuthRequest: Function = () => {}
-  authRequest = new Promise((resolve, reject) => {
+  authRequest = new Promise(resolve => {
     this.resolveAuthRequest = resolve
   })
 
@@ -29,6 +29,7 @@ export class AuthService {
       .pipe(catchError(this.ErrorHandler.bind(this)))
       .subscribe(res => {
         if (res.resultCode === ResultCodeEnum.Success) {
+          this.isAuth = true
           this.router.navigate(['/'])
         } else {
           this.notificationService.handleError(res.messages[0])
@@ -56,6 +57,7 @@ export class AuthService {
       .subscribe(res => {
         if (res.resultCode === ResultCodeEnum.Success) {
           this.isAuth = true
+          this.router.navigate(['/'])
         }
 
         this.resolveAuthRequest()
