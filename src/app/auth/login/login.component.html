@@ -52,6 +52,13 @@
     <!--      <div *ngIf="password!.errors?.['pattern']">Password must be at least 4 characters long.</div>-->
     <!--    </div>-->
 
+    <!--    <div *ngIf="password!.invalid && (password!.dirty || password!.touched)" class="error">-->
+    <!--      <div *ngIf="password!.errors?.['required']">Password is required.</div>-->
+    <!--      <div *ngIf="password!.errors?.['minlength']">-->
+    <!--        Password must be at least 4 characters long.-->
+    <!--      </div>-->
+    <!--    </div>-->
+
     <!--Remember me-->
     <label> <input type="checkbox" formArrayName="rememberMe" /> Remember me</label>
 
