@@ -3,13 +3,15 @@
   <button (click)="logoutHandler()">logout</button>
 </div>
 <div class="todo-input">
-  <input
-    class="input"
-    type="text"
-    placeholder="Add new todolist..."
-    [(ngModel)]="todoTitle"
-    (keydown.enter)="createTodolist()" />
-  <button (click)="createTodolist()">+</button>
+  <div class="row">
+    <input
+      class="input"
+      type="text"
+      placeholder="Add new todolist..."
+      [(ngModel)]="todoTitle"
+      (keydown.enter)="createTodolist()" />
+    <button (click)="createTodolist()">+</button>
+  </div>
 </div>
 <div class="todos-box">
   <tl-todolist

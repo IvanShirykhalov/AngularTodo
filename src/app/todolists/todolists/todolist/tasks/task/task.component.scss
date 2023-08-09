@@ -2,7 +2,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  background-color: #edeef0;
+  border-radius: 30px;
+  padding-left: 20px;
+  margin-bottom: 25px;
 }
 
 .task-content {
@@ -12,5 +15,23 @@
 .completed-task {
   opacity: 0.5;
   text-decoration: line-through;
+}
+
+button {
+  border: none;
+  outline: none;
+  padding: 16px 25px;
+  background: linear-gradient(135deg, #153677, #4e085f);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 40px;
+}
+
+input {
+  border: none;
+  outline: none;
+  background-color: #edeef0;
+  color: #ff5945;
 }
 

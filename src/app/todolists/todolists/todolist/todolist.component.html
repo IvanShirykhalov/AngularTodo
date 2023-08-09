@@ -1,12 +1,13 @@
 <div class="box">
   <div class="todo-header">
     <input
+      class="input"
       *ngIf="editMode; else content"
       [(ngModel)]="newTitle"
       (blur)="editTitleHandler()"
       (keydown.enter)="editTitleHandler()" />
     <ng-template #content>
-      <b (dblclick)="activateEditModeHandler()">{{ todo.title }}</b>
+      <p class="title" (dblclick)="activateEditModeHandler()">{{ todo.title | titlecase }}</p>
     </ng-template>
     <button (click)="deleteTodolist()">Delete</button>
   </div>
@@ -14,5 +15,5 @@
   <tl-filtering-btn
     (changeFilterEvent)="changeFilter($event)"
     [filter]="todo.filter"></tl-filtering-btn>
-  <tl-todo-footer [addDate]="todo.addedDate"></tl-todo-footer>
+  <!--  <tl-todo-footer [addDate]="todo.addedDate"></tl-todo-footer>-->
 </div>

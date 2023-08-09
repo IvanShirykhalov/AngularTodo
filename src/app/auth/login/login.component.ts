@@ -19,7 +19,7 @@ export class LoginComponent {
     }),
     password: new FormControl<string>('', {
       nonNullable: true,
-      validators: [Validators.required, Validators.minLength(4)],
+      validators: [Validators.required, Validators.pattern('[a-zA-Z0-9!@#$%^&*]{4,}$')],
     }),
     rememberMe: new FormControl<boolean>(false, { nonNullable: true }),
   })

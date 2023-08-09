@@ -6,7 +6,6 @@
       type="checkbox"
       (click)="changeTaskStatusHandler($event)"
       [checked]="task.status === tasksStatusEnum.completed" />
-
     <input
       *ngIf="editMode; else content"
       [(ngModel)]="newTitle"

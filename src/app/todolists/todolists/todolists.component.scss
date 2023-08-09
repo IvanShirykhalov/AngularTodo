@@ -1,27 +1,49 @@
 .todos-header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
+  justify-content: space-between;
+  color: #edeef0;
+  padding: 0 40px;
 }
 
 .todo-input {
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
+  justify-content: space-evenly;
   gap: 10px;
 }
 
-.input {
-  width: 300px;
-  border: 2px solid black;
-  padding: 10px;
+
+.row {
+  background-color: #edeef0;
+  border-radius: 30px;
+  padding-left: 20px;
+  margin-bottom: 25px;
 }
+
+input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px;
+  background-color: #edeef0;
+}
+
+button {
+  border: none;
+  outline: none;
+  padding: 16px 50px;
+  background: #ff5945;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 40px;
+}
+
 
 .todos-box {
   display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
 }
 

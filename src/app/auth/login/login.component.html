@@ -4,11 +4,11 @@
   <div>
     <p>
       To log in get registered
-      <a href="https://social-network.samuraijs.com/"> here </a>
+      <a href="https://social-network.samuraijs.com/"> <b>here </b></a>
     </p>
     <p>or use common test account credentials:</p>
-    <p>Email: free@samuraijs.com</p>
-    <p>Password: free</p>
+    <p>Email: <b>free@samuraijs.com</b></p>
+    <p>Password: <b>free</b></p>
   </div>
 
   <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()" class="form">
@@ -27,10 +27,10 @@
       </div>
     </label>
 
-    <div *ngIf="email!.invalid && (email!.dirty || email!.touched)" class="error">
-      <div *ngIf="email!.errors?.['required']">Email is required.</div>
-      <div *ngIf="email!.errors?.['pattern']">Email is not correct</div>
-    </div>
+    <!--    <div *ngIf="email!.invalid && (email!.dirty || email!.touched)" class="error">-->
+    <!--      <div *ngIf="email!.errors?.['required']">Email is required.</div>-->
+    <!--      <div *ngIf="email!.errors?.['pattern']">Email is not correct</div>-->
+    <!--    </div>-->
 
     <!--Password-->
     <label>
@@ -41,22 +41,25 @@
           formControlName="password"
           required
           [ngClass]="{
-            inputError: password!.invalid && (password!.dirty || password!.touched),
+            inputError: password!.invalid && password!.touched,
             inputSuccess: password!.valid
           }" />
       </div>
     </label>
 
-    <div *ngIf="password!.invalid && (password!.dirty || password!.touched)" class="error">
-      <div *ngIf="password!.errors?.['required']">Password is required.</div>
-      <div *ngIf="password!.errors?.['minlength']">
-        Password must be at least 4 characters long.
-      </div>
-    </div>
+    <!--    <div *ngIf="password!.invalid && (password!.dirty || password!.touched)" class="error">-->
+    <!--      <div *ngIf="password!.errors?.['required']">Password is required.</div>-->
+    <!--      <div *ngIf="password!.errors?.['pattern']">Password must be at least 4 characters long.</div>-->
+    <!--    </div>-->
 
     <!--Remember me-->
     <label> <input type="checkbox" formArrayName="rememberMe" /> Remember me</label>
 
-    <button [disabled]="loginForm.invalid" type="submit">sign in</button>
+    <button
+      [class]="loginForm.invalid ? 'btn-invalid' : 'btn'"
+      [disabled]="loginForm.invalid"
+      type="submit">
+      sign in
+    </button>
   </form>
 </div>
