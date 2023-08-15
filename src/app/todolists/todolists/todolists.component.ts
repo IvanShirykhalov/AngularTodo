@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/core/services/auth.service'
 })
 export class TodolistsComponent implements OnInit {
   todos$!: Observable<DomainTodo[]>
-  todoTitle = ''
+  todoTitle!: string
 
   constructor(
     private todolistsService: TodolistsService,

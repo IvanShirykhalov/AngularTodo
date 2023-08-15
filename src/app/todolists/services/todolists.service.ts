@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
 import { environment } from 'src/enviroments/enviroment'
 import { DomainTodo, FilterType, Todo } from 'src/app/todolists/models/todolists.model'
-import { BehaviorSubject, map } from 'rxjs'
+import { BehaviorSubject, catchError, map } from 'rxjs'
 import { CommonResponseType } from 'src/app/core/models/core.models'
 
 @Injectable({
@@ -29,7 +29,9 @@ export class TodolistsService {
 
   createTodolist(title: string) {
     this.http
-      .post<CommonResponseType<{ item: Todo }>>(`${environment.baseUrl}/todo-lists`, { title })
+      .post<CommonResponseType<{ item: Todo }>>(`${environment.baseUrl}/todo-lists`, {
+        title: title.trim(),
+      })
       .pipe(
         map(res => {
           const newTodo: DomainTodo = { ...res.data.item, filter: 'all' }

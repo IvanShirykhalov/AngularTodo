@@ -33,7 +33,7 @@ export class TasksService {
     this.http
       .post<CommonResponseType<{ item: Task }>>(
         `${environment.baseUrl}/todo-lists/${data.todolistId}/tasks`,
-        { title: data.title }
+        { title: data.title.trim() }
       )
       .pipe(
         map(res => {
